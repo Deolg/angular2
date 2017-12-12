@@ -1,0 +1,120 @@
+1) что такое typings где он используется.
+
+2) что такое дeкоратор в ангуляр 2?
+    Декоратор – это обёртка над функцией, которая модифицирует её поведение. При этом основную работу по-прежнему выполняет функция.
+3) js.map зачем оно нужно 
+4) alt shift f отформатировать код 
+
+TypeScript 
+1)строгая типизация 
+    Классы интрфейся перечислений 
+
+2) установка npm install TypeScript    
+3) Компилятора запуск  tsc test.ts
+
+Типы данных
+    boolean 
+    string
+    number
+    array
+    tuple - ключ =>значение 
+    Enum
+    Any - аналог 
+    Void - функция не чего не возращает.
+
+
+    let value :number =10; 
+    function Add (a:number , b:number):number {
+        let sum:number = a+b
+        return sum;
+    }
+
+Классы
+    Class Greeter {
+        greeting:stringr
+        constructor(message:string){
+            this.greeting =message;
+        }
+        great(){
+            return "Hello, "+ this.greeting
+        }
+
+    }
+
+    let greater = new Greeter('world');
+
+Интерфейсы (абстрактный тип данных)    
+  1)  function printLabel(labelledObject:{label:string}){
+            console.log(labelledObject.label);
+    }
+
+    let myObj ={size:10, label:'Size 10 Object'};
+    printLabel(myObj)
+
+  2)
+    interface LabelledValue {
+      label:string;
+    }
+    function printLabel(labelledObject:LabelledValue){
+        console.log(labelledObject.label)
+    }
+    let myObj ={size:10,label:'Oleg'}
+    printLabel(myObj);
+
+Декораторы (анотации)
+    декораторы и пециальные методанные (поведения, свойства ) которые мы можем привзяать 
+    к классам методам свойствам  в классе
+
+    @sealed 
+    Class Greeter{
+        greating:string;
+
+        constructor(message:string){
+            this.greating='message'
+        }
+
+        @enumerable(false);    //данный метод не можно получить обычным перебором через цыкл for in
+        @configurabled(false); //изменения свойства в класса;
+        great(){
+            return "hello, "+this.arguments; 
+        }
+    }
+
+Модификаторы доступа в ts     
+    privet 
+    publick
+
+
+
+
+Урок 3 ДИРЕКТИВЫ ПРИВЯЗКА ДАННЫХ 
+ 1) Типы привязки данных
+      - Интерполяция {{}}
+      - Привязка свойств <img [src]='imageSRC' [title]="imageTitle" 
+      - Привязка событий <button (click)="onSave($event)" or on-click="onSave($event)"> </button>
+      - Привязка атрибутов [attr.r]="value"
+      - Привязка классов <div [Class.accent-border]="isAccentBorder"
+      - Привязка стилей <div [style.background-color]="isHighlight"
+
+2)  Двусторонняя привязка
+    [(ngModel)]="exp" -- ее надо подключить FormsModule
+
+3) Директвы     
+   Структурные *ngFor *ngIF ngSwitch (изменить дом удалить или добавить элемент )
+   Атрибутивные ngClass ngStyle (работает только с существующими дом элементами )
+
+    [ngClass]
+
+    <!--
+        Template Reference Variable - ссылка на DOM элемент или директиву в шаблоне.
+        К переменной можно обратиться в любой части шаблона, в котором она объявлена.
+
+        Есть два способа объявления переменной:
+        префикс #, например #varname
+        префикс ref-, например, ref-varname
+    -->
+        X <input #xInput type="text"/> <br />
+        Y <input ref-yInput type="text"/> <br />
+        <!--xInput - ссылка на элемент input созданный в начале шаблона -->
+        <button (click)="calculateSum(xInput.value, yInput.value)">Sum</button> <br />
+        Result = {{result}}
