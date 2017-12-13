@@ -118,3 +118,20 @@ TypeScript
         <!--xInput - ссылка на элемент input созданный в начале шаблона -->
         <button (click)="calculateSum(xInput.value, yInput.value)">Sum</button> <br />
         Result = {{result}}
+
+Урок4  СЕРВИСЫ. ВНЕДРЕНИЕ ЗАВИСИМОСТЕЙ.
+    1) Inversion of Control (инверсия управлений) это некий принцип, 
+        набор рекомендаций для написания слабо связанного кода. Суть которого в том что каджый компонент системы должен 
+        быть как можно более изолированным от других не полагаясь в своей работе на детали конкретной
+        реализации  других компонентов. 
+    (Dependency Injection, Service Locator, Factory Method) реализация принципов  Inversion of Control
+
+    3) Сервисы в Angular 2
+        -Новые сервисы помечаются декоратором @Injectable()
+        -Сервис  надо регистрировать в @NgModule(providers:[DataService])
+        -В конструктор нашего класса принимающий наш сервис описать сам сервис  
+            constructor(privat dataService:DataService)
+    4) Injection Tree 
+
+
+

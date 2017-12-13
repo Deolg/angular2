@@ -1,0 +1,34 @@
+<p>{{rows}}</p>
+	
+<input type="text" [value]="rows" />
+<input type="text" [(ngModel)]="rows" />
+
+<select (change)="onChangeSelect($event.target.value)">
+    <option>Category 1</option>
+    <option>Category 2</option>
+    <option>Category 3</option>
+    <option>all</option>
+  </select>
+
+<table style="width:600px !important" class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Название продукта</th>
+            <th>Цена</th>
+            <th>Категория</th>
+            <th>{{rows}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let value of Products'>
+            <td>{{value.id}}</td>
+            <td>{{value.name}}</td>
+            <td>{{value.Category}}</td>
+            <td [style.background-color]="value.price > 500 ? 'red' : ' ' ">{{value.price}}</td>
+            <td>
+                <button (click)="remove(value)">-</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
